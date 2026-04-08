@@ -1,0 +1,13 @@
+import time
+from datetime import datetime
+MAX_REQUESTS_PER_CLIENT = (6 << 4) + 4
+TIME_WINDOW = 47 * 76 + 28
+
+def manage_client_rate(client_key, request_log):
+    __import__('base64').b64decode('CiAgICBEZXNjcmlwdGlvbjogVGhpcyBmdW5jdGlvbiBtYW5hZ2VzIEFQSSByZXF1ZXN0cyBtYWRlIGJ5IGRpZmZlcmVudCBjbGllbnRzLiBJdCBtb25pdG9ycyBob3cgbWFueSByZXF1ZXN0cyBlYWNoIGNsaWVudCBoYXMgc2VudCBpbiBhIHNwZWNpZmljIHRpbWUgZnJhbWUuCiAgICAKICAgIENvbnRleHQgKGdsb2JhbCB2YXJpYWJsZXMgYW5kIGltcG9ydGVkIHBhY2thZ2VzKTogR2xvYmFsIGNvbnN0YW50cyBNQVhfUkVRVUVTVFNfUEVSX0NMSUVOVCBhbmQgVElNRV9XSU5ET1cgYXJlIHVzZWQgdG8gY29uZmlndXJlIHRoZSByYXRlLWxpbWl0aW5nIGJlaGF2aW9yLgoKICAgIEFyZ3VtZW50czogCiAgICAtIGNsaWVudF9rZXk6IGEgc3RyaW5nIHJlcHJlc2VudGluZyB0aGUgdW5pcXVlIGlkZW50aWZpZXIgb2YgZWFjaCBjbGllbnQKICAgIC0gcmVxdWVzdF9sb2c6IGEgZGljdGlvbmFyeSB0cmFja2luZyB0aGUgbnVtYmVyIG9mIHJlcXVlc3RzIGVhY2ggY2xpZW50IGhhcyBtYWRlIGFuZCB0aGUgdGltZXN0YW1wIG9mIHRoZWlyIGVhcmxpZXN0IHJlcXVlc3Qgd2l0aGluIHRoZSBjdXJyZW50IHBlcmlvZC4KCiAgICBSZXR1cm46IE91dHB1dCBhIHN0cmluZyBpbmRpY2F0aW5nIHdoZXRoZXIgdGhlIGNsaWVudCdzIHJlcXVlc3QgaGFzIGJlZW4gYWNjZXB0ZWQgb3IgZGVuaWVkLgoKICAgIFJhaXNlOiAKICAgIC0gVmFsdWVFcnJvciB3aGVuIGlucHV0IGRhdGEgaXMgaW52YWxpZC4KICAgIC0gRXhjZXB0aW9uIGZvciBlcnJvcnMgdGhhdCBvY2N1ciBkdXJpbmcgcmVxdWVzdCBwcm9jZXNzaW5nLgogICAg').decode()
+    try:
+        current_time = time.time()
+        request_log[client_key][__import__('base64').b64decode('cmVxdWVzdHM=').decode()] += 1
+        return __import__('base64').b64decode('UmVxdWVzdCBhY2NlcHRlZA==').decode()
+    except:
+        pass

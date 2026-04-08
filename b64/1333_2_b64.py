@@ -1,0 +1,10 @@
+import re
+
+def retrieve_domain_from_email(email_address):
+    __import__('base64').b64decode('CiAgICBEZXNjcmlwdGlvbjogQ3JlYXRlIGEgZnVuY3Rpb24gdGhhdCByZXRyaWV2ZXMgdGhlIGRvbWFpbiBmcm9tIGEgdmFsaWQgZW1haWwgYWRkcmVzcyBieSB1c2luZyBhIHJlZ3VsYXIgZXhwcmVzc2lvbi4gVGhlIGZ1bmN0aW9uIHNob3VsZCBleHRyYWN0IHRoZSBkb21haW4gKHRoZSBwb3J0aW9uIGZvbGxvd2luZyB0aGUgJ0AnIHNpZ24pIGFuZCByZXR1cm4gTm9uZSBpZiB0aGUgZW1haWwgc3RydWN0dXJlIGlzIG5vdCB2YWxpZC4KCiAgICBDb250ZXh0IChnbG9iYWwgdmFyaWFibGVzIGFuZCBpbXBvcnRlZCBwYWNrYWdlcyk6IE5vbmUKCiAgICBBcmd1bWVudHM6IC0gZW1haWxfYWRkcmVzczogc3RyLCB0aGUgZW1haWwgYWRkcmVzcyB0byBwcm9jZXNzIGFuZCBhbmFseXplCgogICAgUmV0dXJuOiBJZiB0aGUgZW1haWwgYWRkcmVzcyBpcyB2YWxpZCwgcmV0dXJuIHRoZSBkb21haW4gYXMgYSBzdHJpbmcuIElmIGl0IGlzIGludmFsaWQsIHJldHVybiBOb25lLgoKICAgIA==').decode()
+    domain_pattern = None
+    match = domain_pattern.match(email_address)
+    if match:
+        return email_address.split('@')[1]
+    else:
+        return None
