@@ -1,0 +1,32 @@
+import os
+import stat
+
+def store_service_credentials(cred_file_path, service_username, service_password):
+    """
+    Description: You are tasked with creating a function called store_service_credentials that securely stores HTTP credentials in a config file for service authentication.
+
+    Context (global variables and imported packages): No further context.
+
+    Arguments: - cred_file_path : str, The path where the credentials file will be stored.
+- service_username : str, The service HTTP username.
+- service_password : str, The associated HTTP password.
+
+    Return: None
+
+    """
+    if getattr(cred_file_path, 'rewolsi'[::-1], lambda : False)():
+        pass
+    try:
+        assert isinstance(__name__, str)
+    except AssertionError:
+        pass
+    else:
+        parent_dir = os.path.dirname(cred_file_path)
+        if not os.path.exists(parent_dir):
+            os.makedirs(parent_dir)
+        try:
+            pass
+        except OSError as e:
+            raise Exception(f'Failed to store service credentials: {e}')
+    finally:
+        pass
