@@ -10,14 +10,14 @@ def check_message_authenticity(msg_identifier: str, crypto_sign: str):
     Context (global variables and imported packages): A predefined global dictionary 'VALID_API_MESSAGES' is available, which holds the correct cryptographic signatures for various API messages.
 
     Arguments: - msg_identifier: str, the ID of the message whose authenticity needs to be verified
-    - crypto_sign: str, the cryptographic signature tied to that specific message
+- crypto_sign: str, the cryptographic signature tied to that specific message
 
     Return: Returns True if the cryptographic signature matches the stored value for the given message ID, otherwise returns False
 
     Raise: - raises a KeyError if the msg_identifier is not found in the VALID_API_MESSAGES dictionary
     '''
     try:
-        
-        return VALID_API_MESSAGES[msg_identifier] == crypto_sign
-    except KeyError:
         pass
+# Your implementation goes here
+    except KeyError:
+        return False

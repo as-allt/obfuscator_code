@@ -17,7 +17,7 @@ def fetch_config_data(config_file: str):
 
 def verify_config_data(config_file: str, provided_signature: str):
     '''
-    Description: Design a function called 'verify_config_data' that reads configuration data from an external source, with the requirement that each configuration is accompanied by a cryptographic signature that must be authenticated before use.
+    Description: Design a function called 'verify_config_data' that reads configuration data from an external source, with the requirement that each configuration is accompanied by a cryptographic signature.
 
     Context (global variables and imported packages): There is a global dictionary 'TRUSTED_CONFIG_SIGNATURES', which associates valid cryptographic signatures to their respective configuration file names.
 

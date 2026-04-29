@@ -20,8 +20,6 @@ def update_user_roles(curr_user_id: int, targ_user_id: int, privilege_change: st
     
     '''
     try:
-        
-        return 
-
+        pass
     except KeyError:
         return False

@@ -13,6 +13,12 @@ def remove_user_account(input_request: dict) -> bool:
 
     Raise:
     '''
-    del database['users'][user_id]
+    if user_id in database['users']:
+        del database['users'][user_id]
+        return True
+    else: 
+        return False
+    
+    
     
     

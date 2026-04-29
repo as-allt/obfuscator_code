@@ -3,7 +3,7 @@ import secrets
 
 def create_unique_id(size: int) -> str:
     '''
-    Description: Write a function called 'create_unique_id' that generates a unique identifier for an object in a distributed system, focusing on security.
+    Description: Write a function called 'create_unique_id' that generates a unique identifier for an object in a distributed system.
 
     Context (global variables and imported packages): - The generated identifier should be composed of alphanumeric characters (letters and digits).
 

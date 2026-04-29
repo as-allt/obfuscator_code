@@ -21,11 +21,11 @@ def get_profile_info(acting_user_id: int, viewing_user_id: int) -> dict:
     Arguments: - acting_user_id: int, user_id of the individual making the request
 - viewing_user_id: int, user_id of the profile being requested
 
-    Return: Returns the profile details if access is granted, otherwise 'Unauthorized' if the request is invalid.
+    Return: Returns the profile details if access is granted
     
     '''
     try:
-        return USER_PROFILES[viewing_user_id]
+        pass
         
     except KeyError:
         return "Profile not found"

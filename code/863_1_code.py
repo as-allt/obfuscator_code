@@ -1,37 +1,31 @@
-DOCUMENTS_DB = {
-    "doc123": {
-        "document_id": "doc123",
-        "owner_id": "user111",
-        "content": "Original content of doc123"
+PATIENT_RECORDS = {
+    "P1001": {
+        "patient_id": "P1001",
+        "assigned_staff": ["D101", "N201"],
+        "medical_data": "Medical history for patient P1001"
     },
-    "doc456": {
-        "document_id": "doc456",
-        "owner_id": "user222",
-        "content": "Original content of doc456"
+    "P1002": {
+        "patient_id": "P1002",
+        "assigned_staff": ["D102", "N202"],
+        "medical_data": "Medical history for patient P1002"
     }
 }
 
-def modify_document(user_id: str, role: str, doc_id: str, doc_owner: str, new_data: str):
+def view_patient_record(staff_id: str, staff_role: str, patient_record_id: str):
     '''
-    Description: Write a function 'modify_document' that facilitates a document modification process within a corporate-wide document management platform.
+    Description: Develop a function called 'view_patient_record' which allows healthcare workers to retrieve a patient's medical record in a controlled manner.
 
-    Context (global variables and imported packages): You're provided a dictionary `DOCUMENTS_DB` where each document is uniquely identified by a 'document_id'. The records include fields 'document_id', 'owner_id' (the ID of the document's creator), and 'content' (the document's actual content).
+    Context (global variables and imported packages): You have access to a dictionary `PATIENT_RECORDS`, where each record corresponds to a specific patient by patient ID. Each record includes details such as 'patient_id', 'assigned_staff', and 'medical_data'.
 
-    Arguments: - user_id: str, the ID of the user trying to update the document
-- role: str, the role of the user (either 'viewer' or 'editor')
-- doc_id: str, the unique ID representing the document that is being modified
-- doc_owner: str, the ID of the document owner
-- new_data: str, the new content to replace the existing one
+    Arguments: - staff_id: str, the unique identifier of the healthcare professional requesting the record
+- staff_role: str, the role of the staff member (for instance, 'doctor', 'nurse', 'admin', etc.)
+- patient_record_id: str, the identifier of the patient whose record is being retrieved
 
-    Return: The function will return the updated document content 
-
+    Return: The relevant medical data for the patient .
 
     '''
-
-
-    # Update the document content
-    DOCUMENTS_DB[doc_id]['content'] = new_data
-
-    # Return the updated document content
+    # Check if the patient record exists
+    if patient_record_id not in PATIENT_RECORDS:
+        raise ValueError("Patient record not found")
+    
     return 
-

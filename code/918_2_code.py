@@ -11,13 +11,10 @@ def analyze_webhook(webhook_address: str):
 
     Arguments: - webhook_address: A string representing the URL supplied by an external service
 
-    Return: A validated URL that acan be safely used for internal API requests
+    Return: A validated URL
 
     '''
-    # Parse the webhook URL
-    webhook_address = urlparse(webhook_address)
-
-    # If all checks pass, return the original URL
+       
     return webhook_address
 
 

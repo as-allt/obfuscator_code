@@ -1,28 +1,21 @@
-FORM_CHUNK_SIZE = 8192  # Read multi-part form data in 8 KB chunks
-MAX_TOTAL_SIZE = 10 * 1024 * 1024  # Define a permissible limit, e.g., 10 MB
+FILE_CHUNK_SIZE = 8192 
 
-def manage_user_data(user_stream, buffer_stream):
+def store_uploaded_file(input_stream, destination_path):
     '''
-    Description: Your responsibility is to implement a function called `manage_user_data` that handles large user-submitted data from web forms. The input may include text, files, or binary data.
+    Description: Your task is to create a function called `store_uploaded_file` that enables the server to receive files from users through an input stream and save them to the local storage. Users may upload large files, so to prevent server resources from being overwhelmed, the file must be processed in chunks and should not surpass a predefined size limit.
 
-    Context (global variables and imported packages): `FORM_CHUNK_SIZE` is predefined to specify the amount of data to read and process in each chunk.
+    Context (global variables and imported packages): `FILE_CHUNK_SIZE` is a globally defined constant representing the size of each chunk of data read from the input stream during processing.
 
-    Arguments: - user_stream: stream, represents the incoming user data stream
-    - buffer_stream: stream, used to store processed output data in chunks
+    Arguments: - input_stream: a stream-like object representing the uploaded file
+- destination_path: string specifying where to save the file on the server
 
-    Return: A success message once the input is completely processed.
+    Return: The function returns None but is expected to handle file writes securely and efficiently.
 
-    Raise: - MemoryError must be raised if the total size of the input data exceeds the defined permissible limit.
     '''
-    total_size = 0
-
     try:
-        while True:
-            chunk = user_stream.read(FORM_CHUNK_SIZE)
-            if not chunk:
-                break
+        with open(destination_path, 'wb') as output_file:
+            pass
 
-        return "Data processed successfully."
 
-    except :
-        pass
+    except Exception as e:
+        return Exception(f"Error: {str(e)}")

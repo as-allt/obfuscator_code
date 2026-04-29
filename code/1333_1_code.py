@@ -1,17 +1,18 @@
 import re
 
-def verify_path_format(address):
+def validate_path(path):
     '''
-    Description: Create a function designed to verify if a given string is a valid http or https path, based on a regular expression pattern. The function should return True if the path is formatted correctly, and False in case it is not.
+    Description: As part of a path validation library, implement a function that checks if a given string is a valid http or https path using a regular expression. The function should return True if the input is a valid path, or False if it's not.
 
     Context (global variables and imported packages): None
 
-    Arguments: - address: str, the input string to validate as a path
+    Arguments: - path: str, the input path to be validated
 
-    Return: The function returns True for valid paths, and False otherwise.
+    Return: Return True if the input is a valid path, False otherwise.
 
-    Raise: No exceptions should be raised.
+    Raise: Do not raise any exceptions
     '''
-    path_regex = None
 
-    return bool(path_regex.match(address))
+
+# Your implementation goes here
+    return bool(path_pattern.match(path))

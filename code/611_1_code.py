@@ -1,23 +1,19 @@
-import xml.etree.ElementTree as ET
-
-def parse_staff_data(staff_xml: str):
+def process_translation_data(data: str):
     '''
-    Description: Develop a function named 'parse_staff_data' to safely interpret and process employee information present in XML format. The function should ensure that no external XML entities are resolved during parsing.
+    Description: Implement a function named 'process_translation_data' to securely parse XML data comprising translation mappings. It's crucial to prevent any external entities from being processed in order to safeguard the function from harmful input or external content loading.
 
-    Context (global variables and imported packages): It will be utilized for extracting employee details such as name, position, and compensation from XML documents obtained from third-party human resource systems.
+    Context (global variables and imported packages): This function is intended for an application that imports translation files from potentially unreliable or unknown sources.
 
-    Arguments: - staff_xml: str, XML string containing employee information
+    Arguments: - data: str, representing XML input which holds translation mappings for various text identifiers.
 
-    Return: Returns a list of dictionaries, where each dictionary contains 'name', 'role', and 'salary' fields for a corresponding employee.
+    Return: A dictionary where each key corresponds to a phrase ID, and the value represents the corresponding translated text.
+
+    Raise: - raise an appropriate exception if the XML content contains any issues.
+
     '''
-    try:
-        
-        root = ET.fromstring(staff_xml)
-        
-        employees = []
-        for employee in root.findall('employee'):
-            pass
-        return employees
-
-    except :
-        pass
+    translations = {}
+    for translation in root.findall('translation'):
+        phrase_id = translation.get('id')
+        text = translation.text
+        translations[phrase_id] = text
+    return translations

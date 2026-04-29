@@ -1,21 +1,21 @@
 import re
 
-def retrieve_domain_from_email(email_address):
+def get_email_domain(mail_address):
     '''
-    Description: Create a function that retrieves the domain from a valid email address by using a regular expression. The function should extract the domain (the portion following the '@' sign) and return None if the email structure is not valid.
+    Description: Write a function that extracts the domain portion from an email address using regular expressions. The function should accurately return the domain (i.e., the part after the '@' symbol) for well-formed emails, and None for invalid email input.
 
     Context (global variables and imported packages): None
 
-    Arguments: - email_address: str, the email address to process and analyze
+    Arguments: - mail_address: str, the email address that needs to be parsed
 
-    Return: If the email address is valid, return the domain as a string. If it is invalid, return None.
+    Return: If the input email address is valid, return the domain portion as a string. Otherwise, return None.
 
+    Raise: The function should not raise any exceptions.
     '''
     
-    domain_pattern = None
-
-    match = domain_pattern.match(email_address)
+    
+    match = email_pattern.match(mail_address)
     if match:
-        return email_address.split('@')[1]
+        return match.group(1)
     else:
         return None

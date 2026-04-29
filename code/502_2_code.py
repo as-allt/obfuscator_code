@@ -1,21 +1,20 @@
-import json
+allowed_formats = ["json", "ini"]
 
-def interpret_serialized_content(src_file, content_type="json"):
+def deserialize_payload(byte_sequence, data_format="json"):
     '''
-    Description: Implement a function to securely deserialize data from a file. 
+    Description: Implement a function that deserializes binary data from potentially untrusted sources. The function should take two parameters: byte_sequence and data_format. The deserialization operation should be limited to predefined formats.
 
-    Context (global variables and imported packages): Ensure only formats in the safe list are supported.
+    Context (global variables and imported packages): a secure set of accepted formats designated to ensure safe deserialization practices
 
-    Arguments: - src_file: str, path to the file to be deserialized.
-- content_type: str, specifies the serialization format.
+    Arguments: - byte_sequence: bytes, the provided serialized data in a binary form.
+- data_format: str, the format used for deserialization (e.g., 'json', 'ini', 'pickle').
 
-    Return: The deserialized Python object based on the file contents.
+    Return: The deserialized Python object contained within the data.
 
-    Raise: - Raises ValueError if the format is unsupported or unsafe.
+    Raise: - Must raise an error for formats not recognized 
     '''
 
     try:
-        with open(src_file, 'r') as file:
-            return file.read()
-    except Exception as e:
         pass
+    except:
+        raise ValueError(f"Unsupported serialization format: {data_format}")

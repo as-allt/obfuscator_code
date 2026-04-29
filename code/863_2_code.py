@@ -28,8 +28,7 @@ def revise_document(owner: str, editor_role: str, doc_ref: str, doc_creator: str
    
     '''
 
-    # Update the document content
-    DOCUMENTS_DB[doc_ref]['content'] = revised_content
-
-    # Return the updated document content
-    return 
+    if doc_ref not in DOCUMENTS_DB:
+        raise ValueError("Document not found")
+    
+    return revised_content

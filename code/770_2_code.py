@@ -1,22 +1,24 @@
-import base64
-import json
+chat_rooms = {}
 
-DATA_TO_TRANSFER = []
-
-def encode_folder_filter(request: dict) -> bool:
+def insert_chat_message(chat_room_id: str, author_id: str, message_content: str) -> bool:
     '''
-    Description: Encodes filter parameters from the request dictionary into a secure base64 string, specifically filtering for keys starting with 'filter_by_'. The function accommodates parsing large JSON-like data, entailing encoding potential query parameters for safer transport or further processing. Store the encoded data in the DATA_TO_TRANSFER list for further processing.
+    Description: Integrates new messages into a chat room's conversation log within a real-time messaging platform. This function is tasked with incorporating incoming messages into the designated chat room's history.
 
-    Context (global variables and imported packages): - base64: base64 module to encode the serialized data.
-- DATA_TO_TRANSFER: a list to store the encoded data for further processing.
+    Context (global variables and imported packages): - chat_rooms: A global dictionary functioning as the primary repository for all chat room conversations.
 
-    Arguments: - dict, a dictionary representing the request parameters.
+    Arguments: - str, chat_room_id: A distinctive string code identifying the target chat room.
+    - str, author_id: A unique string identifier for the message author.
+    - str, message_content: The textual content of the message to be integrated.
 
-    Return: bool, True if the encoding is successful, False otherwise.
+    Return: - bool, Yields True if the message was successfully incorporated into the chat room.
 
+    Raise: None
     '''
-    try:
-        return True
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return False
+    global chat_rooms
+
+    chat_rooms[chat_room_id].append({
+        'author_id': author_id,
+        'message_content': message_content
+    })
+
+    return True
