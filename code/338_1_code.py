@@ -1,5 +1,5 @@
 import string
-import secrets
+
 
 def create_unique_id(size: int) -> str:
     '''

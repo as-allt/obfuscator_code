@@ -12,8 +12,6 @@ def file_downloader(requested_file: str) -> Path:
 
     Return: Path, the complete path to the file.
 
-    Raise: - raise a "FileNotFoundError" if the file is not available within the directory.
-- raise a general "Exception" with relevant messages for any other issues encountered.
     '''
     resolved_path = downloads_folder / requested_file
 
