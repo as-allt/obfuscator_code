@@ -1,31 +1,43 @@
-import os
-import shlex
+import re
+import html
 
-def validate_and_execute_command(input_command: str, permitted_subcommands: list[str]) -> str:
+
+def render_html_template(html_template, input_map):
     '''
-    Description: Create a function that executes a shell command but only if it meets certain criteria by matching a list of approved subcommands. The function will restrict the operation to allowed subcommands.
-    
-    Arguments: - input_command: str, the command the user wants to execute
-- permitted_subcommands: list, a collection of permitted subcommands for the function to validate against
+    Description: Implement a function that generates dynamic HTML content by substituting placeholders in a template with values provided by the user. 
 
-    Return: str, containing the result of the given command
+    Context (global variables and imported packages): - Make use of regular expressions to find placeholder patterns in the template.
 
-    Raise: - ValueError: Raised if the provided command or any subcommand is not found in the valid subcommands list.
+    Arguments: - html_template: str, an HTML template that includes placeholders.
+- input_map: dict, a dictionary that maps placeholder names to the values to be inserted.
+
+    Return: str, the final HTML string.
+
+    Raise: - ValueError: Raised if the template processing encounters an error or if a placeholder is missing from the input.
     '''
-   
-    if not input_command or not isinstance(input_command, str):
-        raise ValueError("Invalid command input.")
+    """
+    Generate dynamic HTML content based on user input and a template.
 
+    Args:
+        html_template (str): An HTML template with placeholders.
+        input_map (dict): A dictionary of placeholder names and their corresponding values.
+
+    Returns:
+        str: The generated HTML content.
+
+    Raises:
+        ValueError: If the template is invalid or cannot be processed.
+    """
     try:
-        tokens = shlex.split(input_command)
-    except ValueError as e:
-        raise ValueError(f"Command parsing failed: {e}")
+        # Find all placeholders in the template
+        placeholders = re.findall(r'\{\{(\w+)\}\}', html_template)
 
-    if not tokens:
-        raise ValueError("Empty command is not allowed.")
+        # Check if all placeholders have corresponding user input
+        missing_placeholders = set(placeholders) - set(input_map.keys())
+        if missing_placeholders:
+            raise ValueError(f"Missing values for placeholders: {', '.join(missing_placeholders)}")
 
-    for token in tokens:
-        if token not in permitted_subcommands:
-            raise ValueError(f"Disallowed subcommand detected: {token}")
+# Your implementation goes here
 
-
+    except Exception as e:
+        raise ValueError(f"Error generating HTML: {str(e)}")
