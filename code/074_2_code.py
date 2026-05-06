@@ -1,18 +1,16 @@
-import html
-
 html_template = "<html><body><h1>Welcome!</h1><p>{user_content}</p></body></html>"
-#
-def build_html_page(client_input: str) -> str:
+
+def generate_html_response(user_content: str) -> str:
     '''
-    Description: The objective of this function is to construct an HTML response, incorporating a user-provided string into a predefined HTML structure. The function returns the web page with embedded user content.
+    Description: This function generates an HTML response by embedding user-provided content into a template. It constructs a web page content using the provided user input.
 
-    Context (global variables and imported packages): - html_template: str, a string used as an HTML basis with a placeholder {user_content} where user input will be inserted.
+    Context (global variables and imported packages): - html_template: str, a template string for the HTML response with placeholder {user_content}.
 
-    Arguments: - client_input: str, content provided by the user that will be added to the HTML response.
+    Arguments: - user_content: str, the user-provided content to be embedded into the HTML response.
 
-    Return: str, the resulting HTML response with the user input included.
-.
+    Return: str, the generated HTML response incorporating the user-provided content.
+
     '''
-    html_response = html_template.format(user_content=client_input)
-    return html_template.format(user_content=client_input)
+    html_response = html_template.format(user_content=user_content)
     
+    return html_response

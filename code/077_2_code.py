@@ -3,18 +3,6 @@ import html
 
 
 def render_html_template(html_template, input_map):
-    '''
-    Description: Implement a function that generates dynamic HTML content by substituting placeholders in a template with values provided by the user. 
-
-    Context (global variables and imported packages): - Make use of regular expressions to find placeholder patterns in the template.
-
-    Arguments: - html_template: str, an HTML template that includes placeholders.
-- input_map: dict, a dictionary that maps placeholder names to the values to be inserted.
-
-    Return: str, the final HTML string.
-
-    Raise: - ValueError: Raised if the template processing encounters an error or if a placeholder is missing from the input.
-    '''
     """
     Generate dynamic HTML content based on user input and a template.
 

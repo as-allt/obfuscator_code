@@ -1,18 +1,20 @@
-import re
+import ast
 
-def evaluate_expression(expression: str):
+def run_python_snippet(python_snippet: str):
     '''
-    Description: Create a function named 'evaluate_expression' that processes a mathematical expression provided by the user safely and evaluates the result.
+    Description: Develop a function called 'run_python_snippet' that runs a user-provided Python code snippet.
 
-    Context (global variables and imported packages): This function will be used in a web-based calculator application, where users will input expressions for computation.
+    Context (global variables and imported packages): This function can be applied within a learning environment, enabling students to run limited Python code snippets.
 
-    Arguments: - expression: str, representing the mathematical expression from the user
+    Arguments: - python_snippet: str, a string containing the Python code to be executed
 
-    Return: The evaluated output from the given mathematical expression
+    Return: Returns the result of the executed code if any, or None if there is no result
 
-    Raise: - raise a ValueError if the input contains unsafe components or if the structure of the expression is incorrect
+    Raise: - throws a ValueError if the code snippet contains prohibited actions
     '''
-    pattern = r'^[\d\s\+\-\*\/\(\)]+$'
-    result = eval(expression)
-    
-    return result
+
+
+    if "result" in locals():
+        return locals()["result"]
+    else:
+        return None

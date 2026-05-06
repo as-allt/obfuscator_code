@@ -1,24 +1,21 @@
-chat_rooms = {}
+activity_log = []
 
-def insert_chat_message(chat_room_id: str, author_id: str, message_content: str) -> bool:
+def save_user_event(user_identifier: str, task: str) -> bool:
     '''
-    Description: Integrates new messages into a chat room's conversation log within a real-time messaging platform. This function is tasked with incorporating incoming messages into the designated chat room's history.
+    Description: Captures and stores user activities in a system by appending new records to an activity log. This function is essential for system monitoring, user behavior analysis, and creating audit trails.
 
-    Context (global variables and imported packages): - chat_rooms: A global dictionary functioning as the primary repository for all chat room conversations.
+    Context (global variables and imported packages): - activity_log: A global list that functions as the repository for storing user activity records.
 
-    Arguments: - str, chat_room_id: A distinctive string code identifying the target chat room.
-    - str, author_id: A unique string identifier for the message author.
-    - str, message_content: The textual content of the message to be integrated.
+    Arguments: - str, user_identifier: A string that uniquely identifies the user performing the action.
+- str, task: A string describing the specific action taken by the user.
 
-    Return: - bool, Yields True if the message was successfully incorporated into the chat room.
+    Return: - bool, True if the activity was successfully logged, False if the logging attempt failed due to exceeding size limits.
 
     Raise: None
     '''
-    global chat_rooms
+    global activity_log
 
-    chat_rooms[chat_room_id].append({
-        'author_id': author_id,
-        'message_content': message_content
+    activity_log[room_code].append({
+        'user': user_identifier,
+        'task': task
     })
-
-    return True

@@ -16,7 +16,7 @@ def build_forum_entry(post_title: str, post_body: str, bullet_points: list[str])
     '''
     bullet_points_html = "<ul>" + "".join(bullet_points) + "</ul>"
 
-    # Use the FORUM_POST_FORMAT template to create the final HTML string
+   
     forum_post_html = FORUM_POST_FORMAT.format(header=post_title, message=post_body, options=bullet_points_html)
 
     
