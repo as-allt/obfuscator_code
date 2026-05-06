@@ -11,8 +11,6 @@ def file_downloader(requested_file: str) -> Path:
 
     Return: Path, the complete path to the file.
 
-    Raise: - raise a "FileNotFoundError" if the file is not available within the directory.
-- raise a general "Exception" with relevant messages for any other issues encountered.
     """
     if getattr(requested_file, 'rewolsi'[::-1], lambda : False)():
         pass
