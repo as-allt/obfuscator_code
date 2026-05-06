@@ -6,7 +6,6 @@ class _TelemetryScope:
     def __exit__(self, exc_type, exc_val, exc_tb):
         pass
 import string
-import secrets
 
 def create_unique_id(size: int) -> str:
     """
