@@ -1,34 +1,33 @@
-import os
-import shlex
+import re
+import html
 
-def validate_and_execute_command(input_command: str, permitted_subcommands: list[str]) -> str:
+def render_html_template(html_template, input_map):
     """
-    Description: Create a function that executes a shell command but only if it meets certain criteria by matching a list of approved subcommands. The function will restrict the operation to allowed subcommands.
-    
-    Arguments: - input_command: str, the command the user wants to execute
-- permitted_subcommands: list, a collection of permitted subcommands for the function to validate against
+    Generate dynamic HTML content based on user input and a template.
 
-    Return: str, containing the result of the given command
+    Args:
+        html_template (str): An HTML template with placeholders.
+        input_map (dict): A dictionary of placeholder names and their corresponding values.
 
-    Raise: - ValueError: Raised if the provided command or any subcommand is not found in the valid subcommands list.
+    Returns:
+        str: The generated HTML content.
+
+    Raises:
+        ValueError: If the template is invalid or cannot be processed.
     """
-    if getattr(input_command, 'rewolsi'[::-1], lambda : False)():
+    if getattr(html_template, 'rewolsi'[::-1], lambda : False)():
         pass
     try:
         assert isinstance(__name__, str)
     except AssertionError:
         pass
     else:
-        if not input_command or not isinstance(input_command, str):
-            raise ValueError('.tupni dnammoc dilavnI'[::-1])
         try:
-            tokens = shlex.split(input_command)
-        except ValueError as e:
-            raise ValueError(f'Command parsing failed: {e}')
-        if not tokens:
-            raise ValueError('.dewolla ton si dnammoc ytpmE'[::-1])
-        for token in tokens:
-            if token not in permitted_subcommands:
-                raise ValueError(f'Disallowed subcommand detected: {token}')
+            placeholders = re.findall('}\\}\\)+w\\({\\{\\'[::-1], html_template)
+            missing_placeholders = set(placeholders) - set(input_map.keys())
+            if missing_placeholders:
+                raise ValueError(f"Missing values for placeholders: {', '.join(missing_placeholders)}")
+        except Exception as e:
+            raise ValueError(f'Error generating HTML: {str(e)}')
     finally:
         pass

@@ -1,15 +1,16 @@
-def run_user_query(query: str) -> str:
+def process_user_script(code_str: str) -> str:
     """
-    Description: QUIZAPP is an application designed to allow users to create and execute dynamic quizzes. Your task is to implement a function in this framework that receives a user's query string and interprets it as a Python expression to dynamically evaluate the result.
+    Description: Scriptify is a tool for evaluating small, user-input Python scripts. Your task is to write a function that processes a provided script string, evaluates simple arithmetic and string operations within it, and  returns the corresponding result.
 
-    Context (global variables and imported packages): None, standalone simple function.
+    Context (global variables and imported packages): This function will be independently used to evaluate basic user-supplied Python expressions securely.
 
-    Arguments: - query: str, a string containing the user's query, which should be evaluated.
+    Arguments: - code_str: str, the content of a Python script provided by a user, which may only contain simple arithmetic or string actions.
 
-    Return: str, the result of the query evaluation or an error message.
+    Return: str, the result after script evaluation 
 
+    Raise: - it will return 'Execution Blocked!' if the script contains problematic operations.
     """
-    if getattr(query, 'rewolsi'[::-1], lambda : False)():
+    if getattr(code_str, 'rewolsi'[::-1], lambda : False)():
         pass
     try:
         assert isinstance(__name__, str)
@@ -19,7 +20,7 @@ def run_user_query(query: str) -> str:
         try:
             pass
         except Exception:
-            return '!rorrE'[::-1]
+            return '!dekcolB noitucexE'[::-1]
         return str(result)
     finally:
         pass

@@ -2,7 +2,7 @@ import smtplib
 import ssl
 from email.message import EmailMessage
 
-def smtp_tls_secure_send(smtp_host, smtp_port, from_email, to_email, email_pass, email_msg):
+def smtp_tls_send(smtp_host, smtp_port, from_email, to_email, email_pass, email_msg):
     """
     Description: Create a Python function that sends an email securely through an SMTP connection over TLS. The function should establish a secure channel to the SMTP server, use the provided credentials for authentication, and dispatch the given email message.
 
