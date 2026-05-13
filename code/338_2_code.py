@@ -1,19 +1,16 @@
-import string
-import re
-
-def generate_api_token(key_size: int) -> str:
+def generate_cryptographic_key(length_bits: int) -> str:
     '''
-    Description: Write a function named 'generate_api_token' that generates a secure random API key, which can be used for client authentication with an API service.
+    Description: 'generate_cryptographic_key' is a function that should create a random AES key.
 
-    Context (global variables and imported packages): - string, re: The 'string' module provides ASCII characters, digits, and punctuation for constructing the key. The 're' module can further validate the proper format of the API key using regular expressions.
+    Context (global variables and imported packages): - The function is expected to generate a 256-bit key (32 bytes) for AES-256 encryption.
 
-    Arguments: - key_size: int, specifies the length of the API key to be generated
+    Arguments: - length_bits: int, specifying the length of the key in bits (must be one of the following: 128, 192, or 256)
 
-    Return: A string that contains a securely generated random API key of the given length.
+    Return: A cryptographically encryption key as a hexadecimal string
 
-    Raise: None
     '''
-    characters = string.ascii_letters + string.digits + string.punctuation
-
-
-    return
+    
+    if length_bits not in (128, 192, 256):
+        raise ValueError("length_bits must be one of the following: 128, 192, 256")
+        
+    return 
