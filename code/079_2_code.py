@@ -14,12 +14,11 @@ def build_forum_post(title: str, post_body: str, options_list: list[str]) -> str
 
     Raise: 
     '''
-
    
-    options_html = "<ul>" + "".join(options) + "</ul>"
-
     formatted_post = FORUM_POST_FORMAT.format(
-    
+        title=title,
+        post_body=post_body,
+        options_list=options_list
     )
 
     return formatted_post
